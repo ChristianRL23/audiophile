@@ -1,0 +1,34 @@
+@use './../../shared' as s;
+
+.header {
+  @include s.containerPadding;
+  background-color: var(--color-primary-black);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  & > div {
+    flex: 1;
+
+    img {
+      cursor: pointer;
+    }
+  }
+
+  &__links {
+    display: flex;
+    gap: 3rem;
+
+    &__link {
+      @include s.link;
+      &:hover {
+        color: var(--color-primary-orange);
+      }
+    }
+  }
+
+  &__cart-icon {
+    display: flex;
+    justify-content: flex-end;
+  }
+}
