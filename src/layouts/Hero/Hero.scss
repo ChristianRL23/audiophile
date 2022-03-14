@@ -1,0 +1,34 @@
+@use './../../shared' as s;
+
+.hero {
+  @include s.containerPadding;
+  background-image: url('./image-hero.jpg');
+  height: 80vh;
+  background-position: center;
+  background-size: cover;
+
+  &__content {
+    width: 40%;
+    letter-spacing: 0.2rem;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 2.5rem;
+
+    &__label {
+      @include s.newProductLabel(#ffffff83);
+    }
+
+    &__product {
+      &-name {
+        line-height: 0.9;
+        color: var(--color-primary-white);
+        font-size: 5.6rem;
+      }
+      &-description {
+        @include s.paragraph(#ffffffb2);
+      }
+    }
+  }
+}

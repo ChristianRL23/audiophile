@@ -3,10 +3,15 @@ import './Button.scss';
 interface ButtonProps {
   color: 'orange' | 'white';
   textContent: string;
+  style: object;
 }
 
-const Button = ({ color, textContent }: ButtonProps) => {
-  return <button className={`button--${color}`}>{textContent}</button>;
+const Button = ({ color, textContent, style }: ButtonProps) => {
+  return (
+    <button style={style} className={`button--${color}`}>
+      {textContent}
+    </button>
+  );
 };
 
 export default Button;

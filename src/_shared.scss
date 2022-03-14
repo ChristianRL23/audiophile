@@ -7,3 +7,16 @@
   text-decoration: none;
   font-size: 1.4rem;
 }
+
+@mixin newProductLabel($color) {
+  color: $color;
+  font-weight: 300;
+  font-size: 1.4rem;
+  letter-spacing: 0.5rem;
+}
+
+@mixin paragraph($color) {
+  color: $color;
+  font-size: 1.5rem;
+  line-height: 1.5;
+}

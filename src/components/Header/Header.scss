@@ -3,9 +3,11 @@
 .header {
   @include s.containerPadding;
   background-color: var(--color-primary-black);
+  background-color: #191919;
   display: flex;
   justify-content: space-between;
   align-items: center;
+  border-bottom: 1px solid #97979734;
 
   & > div {
     flex: 1;
