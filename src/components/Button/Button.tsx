@@ -1,9 +1,9 @@
 import './Button.scss';
 
 interface ButtonProps {
-  color: 'orange' | 'white';
+  color: 'orange' | 'white' | 'black';
   textContent: string;
-  style: object;
+  style?: object;
 }
 
 const Button = ({ color, textContent, style }: ButtonProps) => {

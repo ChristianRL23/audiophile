@@ -4,12 +4,12 @@
   font-weight: 500;
   cursor: pointer;
   padding: 1.5rem 2.5rem;
+  border: none;
 
   &--orange {
     @extend .button;
     background-color: var(--color-primary-orange);
     color: var(--primary-color-white);
-    border: none;
     color: var(--color-primary-white);
     &:hover {
       background-color: var(--color-secondary-orange);
@@ -20,10 +20,18 @@
     background-color: var(--color-primary-white);
     color: var(--primary-color-black);
     border: 1.5px solid var(--color-primary-black);
-
     &:hover {
       background-color: var(--color-primary-black);
       color: var(--color-primary-white);
+    }
+  }
+
+  &--black {
+    @extend .button;
+    background-color: var(--color-primary-black);
+    color: var(--color-primary-white);
+    &:hover {
+      background-color: #4c4c4c;
     }
   }
 }
