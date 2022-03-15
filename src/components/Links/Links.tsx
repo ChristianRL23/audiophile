@@ -1,20 +1,21 @@
+import { Link } from 'react-router-dom';
 import './Links.scss';
 
 const Links = () => {
   return (
     <div className="links">
-      <a className="links__link" href="#">
+      <Link className="links__link" to="/">
         HOME
-      </a>
-      <a className="links__link" href="#">
+      </Link>
+      <Link className="links__link" to="/headphones">
         HEADPHONES
-      </a>
-      <a className="links__link" href="#">
+      </Link>
+      <Link className="links__link" to="/speakers">
         SPEAKERS
-      </a>
-      <a className="links__link" href="#">
+      </Link>
+      <Link className="links__link" to="/earphones">
         EARPHONES
-      </a>
+      </Link>
     </div>
   );
 };

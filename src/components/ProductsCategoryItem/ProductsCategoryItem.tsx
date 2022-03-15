@@ -1,5 +1,6 @@
 import './ProductsCategoryItem.scss';
 import arrowRight from './icon-arrow-right.svg';
+import { useNavigate } from 'react-router-dom';
 
 interface ProductsCategoryItemProps {
   name: string;
@@ -7,8 +8,11 @@ interface ProductsCategoryItemProps {
 }
 
 const ProductsCategoryItem = ({ name, image }: ProductsCategoryItemProps) => {
+  const navigate = useNavigate();
+  const goToCategorySelected = () => navigate(`/${name.toLowerCase()}`);
+
   return (
-    <div className="products-category-item">
+    <div onClick={goToCategorySelected} className="products-category-item">
       <div className="products-category-item__content">
         <img
           className="products-category-item__content__image"
