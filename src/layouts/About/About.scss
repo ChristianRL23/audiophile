@@ -1,0 +1,35 @@
+@use './../../shared' as s;
+
+.about {
+  @include s.containerPadding;
+  display: flex;
+  justify-content: space-between;
+  gap: 10rem;
+  margin-bottom: 5rem;
+
+  &__content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    &__text {
+      h4 {
+        text-transform: uppercase;
+        font-size: 4rem;
+        margin-bottom: 2rem;
+
+        span {
+          color: var(--color-primary-orange);
+        }
+      }
+      p {
+        font-size: 1.6rem;
+        line-height: 1.55;
+        color: rgba(0, 0, 0, 0.5);
+      }
+    }
+  }
+
+  &__image {
+    width: 50rem;
+  }
+}
