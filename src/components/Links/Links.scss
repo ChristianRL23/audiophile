@@ -1,0 +1,13 @@
+@use './../../shared' as s;
+
+.links {
+  display: flex;
+  gap: 3rem;
+
+  &__link {
+    @include s.link;
+    &:hover {
+      color: var(--color-primary-orange);
+    }
+  }
+}

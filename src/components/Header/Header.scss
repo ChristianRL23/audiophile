@@ -17,18 +17,6 @@
     }
   }
 
-  &__links {
-    display: flex;
-    gap: 3rem;
-
-    &__link {
-      @include s.link;
-      &:hover {
-        color: var(--color-primary-orange);
-      }
-    }
-  }
-
   &__cart-icon {
     display: flex;
     justify-content: flex-end;
