@@ -1,13 +1,14 @@
+import { Route, Routes } from 'react-router-dom';
 import './App.scss';
 import Category from './layouts/Category/Category';
 import Home from './layouts/Home/Home';
 
 function App() {
   return (
-    <div>
-      {/* <Home /> */}
-      <Category />
-    </div>
+    <Routes>
+      <Route path="/" element={<Home />} />
+      <Route path="/:category" element={<Category />} />
+    </Routes>
   );
 }
 
