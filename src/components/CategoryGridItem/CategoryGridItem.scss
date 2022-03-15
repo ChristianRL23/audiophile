@@ -1,0 +1,37 @@
+@use './../../shared' as s;
+
+.category-grid-item {
+  display: flex;
+  gap: 8rem;
+
+  img {
+    width: 50rem;
+  }
+
+  &__content {
+    display: flex;
+    align-items: center;
+
+    &__text {
+      &__label {
+        @include s.newProductLabel(var(--color-primary-orange));
+      }
+
+      &__name {
+        font-size: 4rem;
+        font-weight: 600;
+        text-transform: uppercase;
+        margin-bottom: 1.5rem;
+
+        span {
+          display: block;
+        }
+      }
+
+      &__description {
+        @include s.paragraph(rgba(0, 0, 0, 0.5));
+        margin-bottom: 2rem;
+      }
+    }
+  }
+}
