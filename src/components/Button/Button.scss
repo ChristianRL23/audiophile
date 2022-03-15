@@ -34,4 +34,10 @@
       background-color: #4c4c4c;
     }
   }
+
+  &--transparent {
+    @extend .button;
+    @extend .button--white;
+    background-color: transparent;
+  }
 }

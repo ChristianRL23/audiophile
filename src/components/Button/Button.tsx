@@ -1,7 +1,7 @@
 import './Button.scss';
 
 interface ButtonProps {
-  color: 'orange' | 'white' | 'black';
+  color: 'orange' | 'white' | 'black' | 'transparent';
   textContent: string;
   style?: object;
 }
