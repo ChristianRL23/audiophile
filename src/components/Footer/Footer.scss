@@ -1,0 +1,46 @@
+@use './../../shared' as s;
+
+.footer {
+  @include s.containerPadding;
+  background-color: var(--color-primary-black);
+  display: flex;
+  gap: 10rem;
+
+  & > div {
+    flex: 1;
+    margin-top: 1rem;
+  }
+
+  &__left {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    color: rgba(255, 255, 255, 0.5);
+    font-size: 1.4rem;
+    line-height: 1.55;
+
+    img {
+      width: 11rem;
+    }
+
+    h6 {
+      font-size: inherit;
+    }
+  }
+
+  &__right {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+
+    &__social-media {
+      margin-top: 5rem;
+      display: flex;
+      gap: 2rem;
+
+      img {
+        cursor: pointer;
+      }
+    }
+  }
+}
