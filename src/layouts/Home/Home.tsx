@@ -1,5 +1,6 @@
 import Header from '../../components/Header/Header';
 import Hero from '../Hero/Hero';
+import ProductsCategory from '../ProductsCategory/ProductsCategory';
 import './Home.scss';
 
 const Home = () => {
@@ -7,6 +8,7 @@ const Home = () => {
     <>
       <Header />
       <Hero />
+      <ProductsCategory />
     </>
   );
 };
