@@ -1,3 +1,4 @@
+import { useParams } from 'react-router-dom';
 import Button from '../Button/Button';
 import './CategoryGridItem.scss';
 
@@ -6,6 +7,7 @@ interface CategoryGridItemProps {
   description: string;
   isNew?: boolean;
   image: string;
+  direction: 'right' | 'left';
 }
 
 const CategoryGridItem = ({
@@ -13,10 +15,15 @@ const CategoryGridItem = ({
   name,
   isNew,
   description,
+  direction,
 }: CategoryGridItemProps) => {
+  const params = useParams();
+  let categoryProductName = params.category!;
+  categoryProductName =
+    categoryProductName.charAt(0).toUpperCase() + categoryProductName.slice(1);
   const productNameArr = name.split(' ');
   const keywordIndex = productNameArr.findIndex(
-    (word) => word === 'Headphones'
+    (word) => word === categoryProductName || word === 'Speaker'
   );
   const productSpanText = productNameArr.slice(0, keywordIndex).join(' ');
   const productNameStyled = (
@@ -27,7 +34,7 @@ const CategoryGridItem = ({
   );
 
   return (
-    <div className="category-grid-item">
+    <div className={`category-grid-item--${direction}`}>
       <img src={image} alt="" />
       <div className="category-grid-item__content">
         <div className="category-grid-item__content__text">

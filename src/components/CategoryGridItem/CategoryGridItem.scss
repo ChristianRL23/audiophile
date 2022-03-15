@@ -4,8 +4,19 @@
   display: flex;
   gap: 8rem;
 
+  &--right {
+    @extend .category-grid-item;
+    flex-direction: row;
+  }
+
+  &--left {
+    @extend .category-grid-item;
+    flex-direction: row-reverse;
+  }
+
   img {
     width: 50rem;
+    border-radius: var(--border-radius);
   }
 
   &__content {
