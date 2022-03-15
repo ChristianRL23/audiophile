@@ -3,6 +3,7 @@ import Header from '../../components/Header/Header';
 import About from '../About/About';
 import Hero from '../Hero/Hero';
 import ProductsCategory from '../ProductsCategory/ProductsCategory';
+import ProductsGrid from '../ProductsGrid/ProductsGrid';
 import './Home.scss';
 
 const Home = () => {
@@ -11,6 +12,7 @@ const Home = () => {
       <Header />
       <Hero />
       <ProductsCategory />
+      <ProductsGrid />
       <About />
       <Footer />
     </>

@@ -1,0 +1,43 @@
+@use './../../shared' as s;
+
+.products-grid {
+  @include s.containerPadding;
+  margin-bottom: 5rem;
+  height: 90rem;
+  display: grid;
+  grid-template-rows: 40% repeat(2, 1fr);
+  grid-template-columns: repeat(2, 1fr);
+  column-gap: 2rem;
+  row-gap: 3rem;
+
+  & > div {
+    border-radius: var(--border-radius);
+  }
+
+  &__product {
+    &--speaker {
+      &-1 {
+        background-color: var(--color-primary-orange);
+        grid-column: 1 / -1;
+        grid-row: 1 / 2;
+
+        img {
+          width: 15rem;
+        }
+      }
+      &-2 {
+        background-image: url('./speaker-2.jpg');
+        grid-column: 1 / -1;
+        grid-row: 2 / 3;
+      }
+    }
+
+    &--earphones {
+      &-image {
+        background-image: url('./earphones.jpg');
+        grid-column: 1 / 2;
+        grid-row: 3 / -1;
+      }
+    }
+  }
+}
