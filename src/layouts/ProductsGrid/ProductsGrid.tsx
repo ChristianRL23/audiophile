@@ -10,19 +10,41 @@ const ProductsGrid = () => {
       <div className="products-grid__product--speaker-1">
         <img src={speaker1} alt="Speaker" />
         <div className="products-grid__product--speaker-1__text">
-          <h4>ZX9 SPEAKER</h4>
+          <h4>
+            <span>ZX9</span>
+            SPEAKER
+          </h4>
           <p>
             Upgrade to premium speakers that are phenomenally built to deliver
             truly remarkable sound.
           </p>
-          <Button color="black" textContent="SEE PRODUCT" />
+          <Button
+            style={{ alignSelf: 'flex-start' }}
+            color="black"
+            textContent="SEE PRODUCT"
+          />
         </div>
       </div>
-      <div className="products-grid__product--speaker-2"></div>
+      <div className="products-grid__product--speaker-2">
+        <div className="products-grid__product--speaker-2__text">
+          <h5>ZX7 SPEAKER</h5>
+          <Button
+            style={{ alignSelf: 'flex-start' }}
+            color="transparent"
+            textContent="SEE PRODUCT"
+          />
+        </div>
+      </div>
       <div className="products-grid__product--earphones-image"></div>
       <div className="products-grid__product--earphones-cta">
-        <h5>YX1 EARPHONES</h5>
-        <Button color="white" textContent="SEE PRODUCT" />
+        <div className="products-grid__product--earphones-cta__text">
+          <h5>YX1 EARPHONES</h5>
+          <Button
+            style={{ alignSelf: 'flex-start' }}
+            color="transparent"
+            textContent="SEE PRODUCT"
+          />
+        </div>
       </div>
     </section>
   );
