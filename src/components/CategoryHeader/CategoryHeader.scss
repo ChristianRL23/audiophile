@@ -1,0 +1,15 @@
+.category-header {
+  background-color: #191919;
+  height: 15rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  h3 {
+    text-transform: uppercase;
+    color: var(--color-primary-white);
+    font-size: 3.9rem;
+    font-weight: 500;
+    letter-spacing: 3px;
+  }
+}
