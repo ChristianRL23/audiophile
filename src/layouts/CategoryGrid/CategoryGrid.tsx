@@ -1,5 +1,4 @@
 import data from './../../data/data.json';
-import headphones from './image-xx99-mark-two-headphones.jpg';
 import CategoryGridItem from '../../components/CategoryGridItem/CategoryGridItem';
 import './CategoryGrid.scss';
 import { ProductModel } from '../../models';
@@ -31,7 +30,7 @@ const CategoryGrid = () => {
             key={product.id}
             name={product.name}
             description={product.description}
-            image={headphones}
+            image={product.image.desktop}
             isNew={product.new}
             direction={direction}
           />

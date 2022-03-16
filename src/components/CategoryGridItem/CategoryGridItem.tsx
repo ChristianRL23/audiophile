@@ -35,7 +35,7 @@ const CategoryGridItem = ({
 
   return (
     <div className={`category-grid-item--${direction}`}>
-      <img src={image} alt="" />
+      <img src={image} alt="Product" />
       <div className="category-grid-item__content">
         <div className="category-grid-item__content__text">
           {isNew && (
