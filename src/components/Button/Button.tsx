@@ -4,11 +4,12 @@ interface ButtonProps {
   color: 'orange' | 'white' | 'black' | 'transparent';
   textContent: string;
   style?: object;
+  onClick?: any;
 }
 
-const Button = ({ color, textContent, style }: ButtonProps) => {
+const Button = ({ color, textContent, style, onClick }: ButtonProps) => {
   return (
-    <button style={style} className={`button--${color}`}>
+    <button onClick={onClick} style={style} className={`button--${color}`}>
       {textContent}
     </button>
   );
