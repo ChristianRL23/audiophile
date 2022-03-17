@@ -4,6 +4,8 @@ import ProductItem from '../../components/ProductItem/ProductItem';
 import './ProductContent.scss';
 import { ProductModel } from '../../models';
 
+//TODO: FIX THE WIDTH (130%) AND  DE LINE /n
+
 const ProductContent = () => {
   const location = useLocation();
   const productData: ProductModel[] = data;
@@ -22,6 +24,23 @@ const ProductContent = () => {
         image={productSelected!.image.desktop}
         price={productSelected!.price}
       />
+      <div className="product-content__features">
+        <div className="product-content__features__features">
+          <h3>FEATURES</h3>
+          <p>{productSelected!.features}</p>
+        </div>
+        <div className="product-content__features__content">
+          <h3>IN THE BOX</h3>
+          <div className="product-content__features__content__items">
+            {productSelected?.includes.map((feature) => (
+              <div>
+                <h6>{feature.quantity}x</h6>
+                <p>{feature.item}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
     </section>
   );
 };

@@ -1,6 +1,57 @@
 @use './../../shared' as s;
 
+@mixin featuresSubtitle {
+  font-size: 3.2rem;
+  margin-bottom: 2rem;
+}
+
 .product-content {
   @include s.containerPadding;
   margin: 5rem 0;
+
+  &__features {
+    display: flex;
+    margin-top: 11rem;
+    gap: 10rem;
+    padding: 0 7rem;
+
+    &__features {
+      h3 {
+        @include featuresSubtitle;
+      }
+
+      p {
+        @include s.paragraph(rgba(0, 0, 0, 0.5));
+      }
+    }
+
+    &__content {
+      width: 120%;
+
+      h3 {
+        @include featuresSubtitle;
+      }
+
+      &__items {
+        display: flex;
+        gap: 1rem;
+        flex-direction: column;
+
+        div {
+          display: flex;
+          gap: 1.5rem;
+          align-items: center;
+
+          h6 {
+            color: var(--color-primary-orange);
+            font-size: 1.5rem;
+          }
+
+          p {
+            @include s.paragraph(rgba(0, 0, 0, 0.5));
+          }
+        }
+      }
+    }
+  }
 }
