@@ -1,5 +1,5 @@
 import data from './../../data/data.json';
-import CategoryGridItem from '../../components/CategoryGridItem/CategoryGridItem';
+import ProductItem from '../../components/ProductItem/ProductItem';
 import './CategoryGrid.scss';
 import { ProductModel } from '../../models';
 import { useParams } from 'react-router-dom';
@@ -26,13 +26,15 @@ const CategoryGrid = () => {
           direction = 'left';
         }
         return (
-          <CategoryGridItem
+          <ProductItem
             key={product.id}
             name={product.name}
             description={product.description}
             image={product.image.desktop}
             isNew={product.new}
             direction={direction}
+            gridItem={true}
+            slug={product.slug}
           />
         );
       })}
