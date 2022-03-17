@@ -1,16 +1,16 @@
 @use './../../shared' as s;
 
-.category-grid-item {
+.product-item {
   display: flex;
   gap: 8rem;
 
   &--right {
-    @extend .category-grid-item;
+    @extend .product-item;
     flex-direction: row;
   }
 
   &--left {
-    @extend .category-grid-item;
+    @extend .product-item;
     flex-direction: row-reverse;
   }
 
@@ -42,6 +42,16 @@
       &__description {
         @include s.paragraph(rgba(0, 0, 0, 0.5));
         margin-bottom: 2rem;
+      }
+
+      &__price {
+        margin-bottom: 3rem;
+        font-size: 2rem;
+      }
+
+      &__buttons {
+        gap: 2rem;
+        display: flex;
       }
     }
   }
