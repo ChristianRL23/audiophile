@@ -1,0 +1,42 @@
+.input-number {
+  display: flex;
+  align-items: center;
+  background-color: var(--color-primary-gray);
+  width: 12rem;
+  justify-content: space-between;
+  padding: 1rem 2rem;
+
+  h6 {
+    font-size: 1.45rem;
+    font-weight: 500;
+    cursor: pointer;
+    color: rgba(0, 0, 0, 0.25);
+
+    &:hover {
+      color: var(--color-primary-orange);
+    }
+  }
+
+  input {
+    background-color: transparent;
+    width: 50%;
+    border: none;
+    text-align: center;
+    font-family: inherit;
+    font-weight: 500;
+    font-size: 1.4rem;
+
+    &:focus {
+      outline: none;
+    }
+    &::-webkit-outer-spin-button,
+    &::-webkit-inner-spin-button {
+      -webkit-appearance: none;
+      margin: 0;
+    }
+
+    &[type='number'] {
+      -moz-appearance: textfield;
+    }
+  }
+}
