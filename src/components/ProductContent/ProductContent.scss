@@ -1,0 +1,6 @@
+@use './../../shared' as s;
+
+.product-content {
+  @include s.containerPadding;
+  margin: 5rem 0;
+}
