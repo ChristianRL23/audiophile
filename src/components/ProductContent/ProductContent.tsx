@@ -3,8 +3,7 @@ import data from './../../data/data.json';
 import ProductItem from '../../components/ProductItem/ProductItem';
 import './ProductContent.scss';
 import { ProductModel } from '../../models';
-
-//TODO: FIX THE WIDTH (130%) AND  DE LINE /n
+import Button from '../Button/Button';
 
 const ProductContent = () => {
   const location = useLocation();
@@ -45,6 +44,18 @@ const ProductContent = () => {
         <img src={productSelected!.gallery.first.desktop} alt="Product" />
         <img src={productSelected!.gallery.second.desktop} alt="Product" />
         <img src={productSelected!.gallery.third.desktop} alt="Product" />
+      </div>
+      <div className="product-content__others">
+        <h3>YOU MAY ALSO LIKE</h3>
+        <div className="product-content__others__items">
+          {productSelected!.others.map((product) => (
+            <div className="product-content__others__items__item">
+              <img src={product.image.desktop} alt="Other product" />
+              <h4>{product.name}</h4>
+              <Button color="orange" textContent="SEE PRODUCT" />
+            </div>
+          ))}
+        </div>
       </div>
     </section>
   );
