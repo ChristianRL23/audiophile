@@ -62,6 +62,11 @@ const cartSlice = createSlice({
     removeAllProducts(state) {
       state.products = [];
     },
+    deleteProduct(state, payload) {
+      state.products = state.products.filter(
+        (product) => product.name !== payload.payload
+      );
+    },
   },
 });
 

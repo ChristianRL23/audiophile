@@ -50,7 +50,10 @@ const Cart = () => {
         </div>
         <div className="cart__items">
           {cartProductsState.map((product) => (
-            <div className="cart__items__item">
+            <div
+              key={Math.random().toString(16).slice(2)}
+              className="cart__items__item"
+            >
               <div className="cart__items__item__left">
                 <img src={product.image} alt="Product cart item" />
                 <div>
