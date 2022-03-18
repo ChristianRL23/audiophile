@@ -59,6 +59,9 @@ const cartSlice = createSlice({
       );
       --state.products[productIndex].quantity;
     },
+    removeAllProducts(state) {
+      state.products = [];
+    },
   },
 });
 

@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
-import { RootStateOrAny, useSelector } from 'react-redux';
+import { RootStateOrAny, useDispatch, useSelector } from 'react-redux';
 import { ProductCartModel } from '../../models';
+import { cartActions } from '../../store/cart';
 
 import Button from '../Button/Button';
 import InputNumber from '../InputNumber/InputNumber';
@@ -13,6 +14,7 @@ const Cart = () => {
   const cartProductsState: ProductCartModel[] = useSelector(
     (state: RootStateOrAny) => state.cart.products
   );
+  const dispatch = useDispatch();
 
   const generateProductNameForCart = (productName: string) => {
     const lastIndex = productName.lastIndexOf(' ');
@@ -42,7 +44,9 @@ const Cart = () => {
       <div className="cart">
         <div className="cart__header">
           <h5>CART ({cartTotalItems})</h5>
-          <h6>Remove all</h6>
+          <h6 onClick={() => dispatch(cartActions.removeAllProducts())}>
+            Remove all
+          </h6>
         </div>
         <div className="cart__items">
           {cartProductsState.map((product) => (
