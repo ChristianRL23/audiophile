@@ -40,7 +40,6 @@ const ProductItem = ({
       {productNameArr[keywordIndex]}
     </h4>
   );
-  console.log(slug);
   const openProductLayout = () => navigate(`${slug}`);
 
   return (

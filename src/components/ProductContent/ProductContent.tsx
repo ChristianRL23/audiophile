@@ -12,7 +12,7 @@ const ProductContent = () => {
   const productSelected = productData.find(
     (product) => product.slug === location.pathname
   );
-  console.log(productSelected);
+  console.log(JSON.stringify(productSelected!.features));
 
   return (
     <section className="product-content">
@@ -40,6 +40,11 @@ const ProductContent = () => {
             ))}
           </div>
         </div>
+      </div>
+      <div className="product-content__gallery">
+        <img src={productSelected!.gallery.first.desktop} alt="Product" />
+        <img src={productSelected!.gallery.second.desktop} alt="Product" />
+        <img src={productSelected!.gallery.third.desktop} alt="Product" />
       </div>
     </section>
   );

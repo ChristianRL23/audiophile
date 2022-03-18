@@ -9,25 +9,51 @@
   @include s.containerPadding;
   margin: 5rem 0;
 
+  &__gallery {
+    height: 60rem;
+    margin-top: 11rem;
+    display: grid;
+    grid-template-columns: 40% 60%;
+    grid-template-rows: repeat(2, 1fr);
+    gap: 2rem;
+    /* margin-bottom: 16rem; */
+
+    img {
+      border-radius: var(--border-radius);
+      height: 100%;
+      width: 100%;
+      object-fit: cover;
+
+      &:nth-child(3) {
+        width: 100%;
+        grid-column: 2 / -1;
+        grid-row: 1 / -1;
+      }
+    }
+  }
+
   &__features {
     display: flex;
     margin-top: 11rem;
     gap: 10rem;
     padding: 0 7rem;
+    margin-bottom: 5rem;
 
     &__features {
+      width: 60%;
+
       h3 {
         @include featuresSubtitle;
       }
 
       p {
         @include s.paragraph(rgba(0, 0, 0, 0.5));
+        white-space: pre-line;
       }
     }
 
     &__content {
-      width: 120%;
-
+      flex: 1;
       h3 {
         @include featuresSubtitle;
       }
