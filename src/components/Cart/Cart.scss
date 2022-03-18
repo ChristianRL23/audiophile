@@ -1,0 +1,44 @@
+.cart {
+  padding: 0.7rem;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  &__header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    h5 {
+      font-size: 1.65rem;
+      letter-spacing: 1px;
+      font-weight: 600;
+    }
+
+    h6 {
+      font-size: 1.4rem;
+      font-weight: 400;
+      cursor: pointer;
+      color: rgba(0, 0, 0, 0.5);
+
+      &:hover {
+        color: var(--color-primary-orange);
+      }
+    }
+  }
+
+  &__total {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    h6 {
+      color: rgba(0, 0, 0, 0.5);
+      font-size: 1.5rem;
+      font-weight: 500;
+    }
+
+    h5 {
+      font-size: 1.7rem;
+    }
+  }
+}
