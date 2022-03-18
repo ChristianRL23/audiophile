@@ -23,3 +23,10 @@ export interface ProductModel {
   price: number;
   slug: string;
 }
+
+export interface ProductCartModel {
+  name: string;
+  price?: number;
+  quantity: number;
+  image: string;
+}

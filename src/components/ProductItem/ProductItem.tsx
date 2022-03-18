@@ -83,7 +83,7 @@ const ProductItem = ({
             />
           ) : (
             <div className="product-item__content__text__buttons">
-              <InputNumber ref={inputProductQuantityRef} />
+              <InputNumber value="1" ref={inputProductQuantityRef} />
               <Button
                 onClick={addProductToCart}
                 color="orange"

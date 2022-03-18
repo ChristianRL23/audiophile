@@ -11,7 +11,6 @@ const ProductContent = () => {
   const productSelected = productData.find(
     (product) => product.slug === location.pathname
   );
-  console.log(JSON.stringify(productSelected!.features));
 
   return (
     <section className="product-content">

@@ -1,19 +1,17 @@
 import { createSlice } from '@reduxjs/toolkit';
-
-type ProductsType = {
-  name: string;
-  price?: number;
-  quantity: number;
-  image: string;
-};
+import { ProductCartModel } from '../models';
 
 interface ProductPayload {
   type: string;
-  payload: ProductsType;
+  payload: ProductCartModel;
 }
 
-// eslint-disable-next-line @typescript-eslint/consistent-type-assertions
-const cartInitialState = { displayed: false, products: <ProductsType[]>[] };
+const cartInitialState = {
+  // eslint-disable-next-line @typescript-eslint/consistent-type-assertions
+  displayed: <boolean>false,
+  // eslint-disable-next-line @typescript-eslint/consistent-type-assertions
+  products: <ProductCartModel[]>[],
+};
 
 const cartSlice = createSlice({
   name: 'cart',
@@ -26,13 +24,11 @@ const cartSlice = createSlice({
       state.displayed = false;
     },
     addProduct(state, payload: ProductPayload) {
-      console.log(payload);
       const productAdded = state.products.find(
         (product) => product.name === payload.payload.name
       );
 
       if (!productAdded) {
-        console.log(productAdded);
         state.products.push(payload.payload);
       } else {
         const productAddedIndex = state.products.findIndex(
@@ -50,6 +46,18 @@ const cartSlice = createSlice({
             payload.payload.quantity;
         }
       }
+    },
+    addQuantity(state, payload) {
+      const productIndex = state.products.findIndex(
+        (product) => product.name === payload.payload
+      );
+      ++state.products[productIndex].quantity;
+    },
+    removeQuantity(state, payload) {
+      const productIndex = state.products.findIndex(
+        (product) => product.name === payload.payload
+      );
+      --state.products[productIndex].quantity;
     },
   },
 });

@@ -1,5 +1,5 @@
 .cart {
-  padding: 0.7rem;
+  padding: 1rem;
   display: flex;
   flex-direction: column;
   gap: 2rem;
@@ -22,6 +22,41 @@
 
       &:hover {
         color: var(--color-primary-orange);
+      }
+    }
+  }
+
+  &__items {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+
+    &__item {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+
+      &__left {
+        display: flex;
+        gap: 1.5rem;
+        align-items: center;
+
+        img {
+          width: 7rem;
+          border-radius: var(--border-radius);
+        }
+
+        div {
+          font-weight: 600;
+          h5 {
+            font-size: 1.55rem;
+          }
+
+          h6 {
+            color: rgba(0, 0, 0, 0.5);
+            font-size: 1.4rem;
+          }
+        }
       }
     }
   }
