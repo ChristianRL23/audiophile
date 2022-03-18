@@ -1,4 +1,7 @@
+import { createRef } from 'react';
+import { useDispatch } from 'react-redux';
 import { useNavigate, useParams } from 'react-router-dom';
+import { cartActions } from '../../store/cart';
 import Button from '../Button/Button';
 import InputNumber from '../InputNumber/InputNumber';
 import './ProductItem.scss';
@@ -24,6 +27,8 @@ const ProductItem = ({
   gridItem,
   slug,
 }: ProductItemProps) => {
+  const dispatch = useDispatch();
+  const inputProductQuantityRef = createRef<HTMLInputElement>();
   const params = useParams();
   const navigate = useNavigate();
   let categoryProductName = params.category!;
@@ -41,6 +46,17 @@ const ProductItem = ({
     </h4>
   );
   const openProductLayout = () => navigate(`${slug}`);
+
+  const addProductToCart = () => {
+    dispatch(
+      cartActions.addProduct({
+        name,
+        image,
+        price,
+        quantity: Number(inputProductQuantityRef.current!.value),
+      })
+    );
+  };
 
   return (
     <div className={`product-item--${direction}`}>
@@ -67,8 +83,12 @@ const ProductItem = ({
             />
           ) : (
             <div className="product-item__content__text__buttons">
-              <InputNumber />
-              <Button color="orange" textContent="ADD TO CART" />
+              <InputNumber ref={inputProductQuantityRef} />
+              <Button
+                onClick={addProductToCart}
+                color="orange"
+                textContent="ADD TO CART"
+              />
             </div>
           )}
         </div>

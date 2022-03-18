@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import './InputNumber.scss';
 
-const InputNumber = () => {
+const InputNumber = React.forwardRef<any>((_, ref) => {
   const [inputValue, setInputValue] = useState<number>(1);
 
   const changeNumber = (operation: 'minus' | 'plus') => {
@@ -39,6 +39,7 @@ const InputNumber = () => {
         -
       </h6>
       <input
+        ref={ref}
         onBlur={verifyInputNumber}
         onChange={changeInputNumber}
         value={inputValue}
@@ -52,6 +53,6 @@ const InputNumber = () => {
       </h6>
     </div>
   );
-};
+});
 
 export default InputNumber;
