@@ -4,8 +4,11 @@ import cartIcon from './icon-cart.svg';
 import Links from '../Links/Links';
 
 import { useNavigate } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
+import { cartActions } from '../../store/cart';
 
 const Header = () => {
+  const dispatch = useDispatch();
   const navigate = useNavigate();
   const goBackToHomepage = () => navigate('/');
 
@@ -16,7 +19,11 @@ const Header = () => {
       </div>
       <Links />
       <div className="header__cart-icon">
-        <img src={cartIcon} alt="Cart" />
+        <img
+          onClick={() => dispatch(cartActions.openCart())}
+          src={cartIcon}
+          alt="Cart"
+        />
       </div>
     </header>
   );

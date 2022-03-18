@@ -1,6 +1,8 @@
 import { useLayoutEffect } from 'react';
+import { RootStateOrAny, useSelector } from 'react-redux';
 import { Route, Routes, useLocation } from 'react-router-dom';
 import './App.scss';
+import Cart from './components/Cart/Cart';
 import Category from './layouts/Category/Category';
 import Home from './layouts/Home/Home';
 import Product from './layouts/Product/Product';
@@ -15,8 +17,11 @@ const Wrapper = ({ children }: any) => {
 };
 
 function App() {
+  const cartState = useSelector((state: RootStateOrAny) => state.cart);
+
   return (
     <Wrapper>
+      {cartState.displayed && <Cart />}
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/:category" element={<Category />} />
