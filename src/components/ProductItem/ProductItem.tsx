@@ -15,6 +15,7 @@ interface ProductItemProps {
   price?: number;
   gridItem: boolean;
   slug?: string;
+  cartImage?: string;
 }
 
 const ProductItem = ({
@@ -26,6 +27,7 @@ const ProductItem = ({
   price,
   gridItem,
   slug,
+  cartImage,
 }: ProductItemProps) => {
   const dispatch = useDispatch();
   const inputProductQuantityRef = createRef<HTMLInputElement>();
@@ -51,7 +53,7 @@ const ProductItem = ({
     dispatch(
       cartActions.addProduct({
         name,
-        image,
+        image: cartImage!,
         price,
         quantity: Number(inputProductQuantityRef.current!.value),
       })

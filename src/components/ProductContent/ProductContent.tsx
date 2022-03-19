@@ -20,6 +20,7 @@ const ProductContent = () => {
         gridItem={false}
         isNew={productSelected!.new}
         image={productSelected!.image.desktop}
+        cartImage={productSelected!.cartImage}
         price={productSelected!.price}
       />
       <div className="product-content__features">
