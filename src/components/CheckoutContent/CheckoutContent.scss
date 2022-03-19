@@ -1,0 +1,46 @@
+@use './../../shared' as s;
+
+.checkout-content {
+  @include s.containerPadding;
+  margin-top: 5rem;
+  display: flex;
+  gap: 2.5rem;
+
+  & > div {
+    background-color: var(--color-primary-white);
+    border-radius: var(--border-radius);
+  }
+
+  &__left {
+    padding: 4rem 3rem;
+    width: 68%;
+    h2 {
+      font-size: 3.2rem;
+      margin-bottom: 4rem;
+    }
+
+    &__forms {
+      display: flex;
+      flex-direction: column;
+      gap: 5rem;
+    }
+  }
+
+  &__right {
+    flex: 1;
+  }
+}
+
+.delivery-text {
+  display: flex;
+  grid-column: 1 / -1;
+  gap: 3rem;
+
+  img {
+    width: 10rem;
+  }
+
+  p {
+    @include s.paragraph(rgba(0, 0, 0, 0.5));
+  }
+}
