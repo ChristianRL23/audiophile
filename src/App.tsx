@@ -4,6 +4,7 @@ import { Route, Routes, useLocation } from 'react-router-dom';
 import './App.scss';
 import Cart from './components/Cart/Cart';
 import Category from './layouts/Category/Category';
+import Checkout from './layouts/Checkout/Checkout';
 import Home from './layouts/Home/Home';
 import Product from './layouts/Product/Product';
 
@@ -26,6 +27,7 @@ function App() {
         <Route path="/" element={<Home />} />
         <Route path="/:category" element={<Category />} />
         <Route path="/:category/:product" element={<Product />} />
+        <Route path="/checkout" element={<Checkout />} />
       </Routes>
     </Wrapper>
   );
