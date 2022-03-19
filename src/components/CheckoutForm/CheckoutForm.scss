@@ -1,0 +1,15 @@
+.checkout-form {
+  &__name {
+    color: var(--color-primary-orange);
+    font-size: 1.4rem;
+    font-weight: 600;
+    letter-spacing: 1.2px;
+    margin-bottom: 1.6rem;
+  }
+
+  &__content {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
+  }
+}
