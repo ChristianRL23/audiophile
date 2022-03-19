@@ -1,0 +1,33 @@
+.cart-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  &__left {
+    display: flex;
+    gap: 1.5rem;
+    align-items: center;
+
+    img {
+      width: 7rem;
+      border-radius: var(--border-radius);
+    }
+
+    div {
+      font-weight: 600;
+      h5 {
+        font-size: 1.55rem;
+      }
+
+      h6 {
+        color: rgba(0, 0, 0, 0.5);
+        font-size: 1.4rem;
+      }
+    }
+  }
+
+  &__quantity {
+    font-size: 1.5rem;
+    color: rgba(0, 0, 0, 0.5);
+  }
+}
