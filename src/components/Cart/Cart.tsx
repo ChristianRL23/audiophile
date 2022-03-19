@@ -42,44 +42,53 @@ const Cart = () => {
   return (
     <Modal>
       <div className="cart">
-        <div className="cart__header">
-          <h5>CART ({cartTotalItems})</h5>
-          <h6 onClick={() => dispatch(cartActions.removeAllProducts())}>
-            Remove all
-          </h6>
-        </div>
-        <div className="cart__items">
-          {cartProductsState.map((product) => (
-            <div
-              key={Math.random().toString(16).slice(2)}
-              className="cart__items__item"
-            >
-              <div className="cart__items__item__left">
-                <img src={product.image} alt="Product cart item" />
-                <div>
-                  <h5>{generateProductNameForCart(product.name)}</h5>
-                  <h6>
-                    $
-                    {product
-                      .price!.toString()
-                      .replace(/\B(?=(\d{3})+(?!\d))/g, ',')}
-                  </h6>
-                </div>
-              </div>
-              <InputNumber
-                cartItem={product.name}
-                value={product.quantity.toString()}
-              />
+        {cartProductsState.length === 0 ? (
+          <h2 className="cart__empty">THE CART IS EMPTY</h2>
+        ) : (
+          <>
+            <div className="cart__header">
+              <h5>CART ({cartTotalItems})</h5>
+              <h6 onClick={() => dispatch(cartActions.removeAllProducts())}>
+                Remove all
+              </h6>
             </div>
-          ))}
-        </div>
-        <div className="cart__total">
-          <h6>TOTAL</h6>
-          <h5>
-            ${cartTotalToPay.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',')}
-          </h5>
-        </div>
-        <Button color="orange" textContent="CHECKOUT" />
+            <div className="cart__items">
+              {cartProductsState.map((product) => (
+                <div
+                  key={Math.random().toString(16).slice(2)}
+                  className="cart__items__item"
+                >
+                  <div className="cart__items__item__left">
+                    <img src={product.image} alt="Product cart item" />
+                    <div>
+                      <h5>{generateProductNameForCart(product.name)}</h5>
+                      <h6>
+                        $
+                        {product
+                          .price!.toString()
+                          .replace(/\B(?=(\d{3})+(?!\d))/g, ',')}
+                      </h6>
+                    </div>
+                  </div>
+                  <InputNumber
+                    cartItem={product.name}
+                    value={product.quantity.toString()}
+                  />
+                </div>
+              ))}
+            </div>
+            <div className="cart__total">
+              <h6>TOTAL</h6>
+              <h5>
+                $
+                {cartTotalToPay
+                  .toString()
+                  .replace(/\B(?=(\d{3})+(?!\d))/g, ',')}
+              </h5>
+            </div>
+            <Button color="orange" textContent="CHECKOUT" />
+          </>
+        )}
       </div>
     </Modal>
   );
