@@ -4,6 +4,7 @@ import { ProductCartModel } from '../../models';
 import { cartActions } from '../../store/cart';
 
 import Button from '../Button/Button';
+import CartItem from '../CartItem/CartItem';
 import InputNumber from '../InputNumber/InputNumber';
 import Modal from '../Modal/Modal';
 import './Cart.scss';
@@ -15,11 +16,6 @@ const Cart = () => {
     (state: RootStateOrAny) => state.cart.products
   );
   const dispatch = useDispatch();
-
-  const generateProductNameForCart = (productName: string) => {
-    const lastIndex = productName.lastIndexOf(' ');
-    return productName.substring(0, lastIndex);
-  };
 
   useEffect(() => {
     const items = cartProductsState.map((product) => product.quantity);
@@ -54,27 +50,13 @@ const Cart = () => {
             </div>
             <div className="cart__items">
               {cartProductsState.map((product) => (
-                <div
-                  key={Math.random().toString(16).slice(2)}
-                  className="cart__items__item"
-                >
-                  <div className="cart__items__item__left">
-                    <img src={product.image} alt="Product cart item" />
-                    <div>
-                      <h5>{generateProductNameForCart(product.name)}</h5>
-                      <h6>
-                        $
-                        {product
-                          .price!.toString()
-                          .replace(/\B(?=(\d{3})+(?!\d))/g, ',')}
-                      </h6>
-                    </div>
-                  </div>
-                  <InputNumber
-                    cartItem={product.name}
-                    value={product.quantity.toString()}
-                  />
-                </div>
+                <CartItem
+                  name={product.name}
+                  price={product.price!}
+                  quantity={product.quantity}
+                  image={product.image}
+                  cart
+                />
               ))}
             </div>
             <div className="cart__total">
