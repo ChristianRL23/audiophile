@@ -27,7 +27,31 @@
   }
 
   &__right {
+    padding: 4rem 3rem;
     flex: 1;
+    align-self: flex-start;
+
+    &__title {
+      font-size: 1.8rem;
+      letter-spacing: 1.4px;
+      font-weight: 600;
+      margin-bottom: 3.5rem;
+    }
+
+    &__cart-items {
+      display: flex;
+      flex-direction: column;
+      gap: 2rem;
+      margin-bottom: 4rem;
+      max-height: 25rem;
+      overflow-y: auto;
+    }
+
+    &__totals {
+      display: flex;
+      flex-direction: column;
+      gap: 0.6rem;
+    }
   }
 }
 
