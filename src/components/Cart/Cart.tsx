@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
 import { RootStateOrAny, useDispatch, useSelector } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
 import { ProductCartModel } from '../../models';
 import { cartActions } from '../../store/cart';
 
@@ -9,12 +10,18 @@ import Modal from '../Modal/Modal';
 import './Cart.scss';
 
 const Cart = ({ type }: any) => {
+  const navigate = useNavigate();
   const [cartTotalItems, setCartTotalItems] = useState<number>(0);
   const [cartTotalToPay, setCartTotalToPay] = useState<number>(0);
   const cartProductsState: ProductCartModel[] = useSelector(
     (state: RootStateOrAny) => state.cart.products
   );
   const dispatch = useDispatch();
+
+  const goToCheckout = () => {
+    navigate('/checkout');
+    dispatch(cartActions.closeCart());
+  };
 
   useEffect(() => {
     const items = cartProductsState.map((product) => product.quantity);
@@ -67,7 +74,11 @@ const Cart = ({ type }: any) => {
                   .replace(/\B(?=(\d{3})+(?!\d))/g, ',')}
               </h5>
             </div>
-            <Button color="orange" textContent="CHECKOUT" />
+            <Button
+              onClick={goToCheckout}
+              color="orange"
+              textContent="CHECKOUT"
+            />
           </>
         )}
       </div>

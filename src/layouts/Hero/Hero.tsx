@@ -1,7 +1,10 @@
+import { useNavigate } from 'react-router-dom';
 import Button from '../../components/Button/Button';
 import './Hero.scss';
 
 const Hero = () => {
+  const navigate = useNavigate();
+
   return (
     <section className="hero">
       <div className="hero__content">
@@ -12,6 +15,7 @@ const Hero = () => {
           for the passionate music enthusiast.
         </p>
         <Button
+          onClick={() => navigate('/headphones/xx99-mark-two')}
           style={{ alignSelf: 'flex-start' }}
           color="orange"
           textContent="SEE PRODUCT"

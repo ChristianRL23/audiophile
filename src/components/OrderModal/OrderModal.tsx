@@ -3,10 +3,18 @@ import Modal from '../Modal/Modal';
 import './OrderModal.scss';
 import checkIcon from './Group 12.png';
 import OrderResume from '../OrderResume/OrderResume';
-import { RootStateOrAny, useSelector } from 'react-redux';
+import { RootStateOrAny, useDispatch, useSelector } from 'react-redux';
 import { ProductCartModel } from '../../models';
+import { useNavigate } from 'react-router-dom';
+import { orderModalActions } from '../../store/orderModal';
 
 const OrderModal = ({ type }: any) => {
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+  const backToHome = () => {
+    navigate('/');
+    dispatch(orderModalActions.close());
+  };
   const cartState: ProductCartModel[] = useSelector(
     (state: RootStateOrAny) => state.cart.products
   );
@@ -24,6 +32,7 @@ const OrderModal = ({ type }: any) => {
         </p>
         <OrderResume arrCartProducts={cartState} />
         <Button
+          onClick={backToHome}
           style={{ marginTop: '1.5rem' }}
           color="orange"
           textContent="BACK TO HOME"

@@ -1,4 +1,4 @@
-import { useLocation } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 import data from './../../data/data.json';
 import ProductItem from '../../components/ProductItem/ProductItem';
 import './ProductContent.scss';
@@ -6,6 +6,7 @@ import { ProductModel } from '../../models';
 import Button from '../Button/Button';
 
 const ProductContent = () => {
+  const navigate = useNavigate();
   const location = useLocation();
   const productData: ProductModel[] = data;
   const productSelected = productData.find(
@@ -52,7 +53,11 @@ const ProductContent = () => {
             <div className="product-content__others__items__item">
               <img src={product.image.desktop} alt="Other product" />
               <h4>{product.name}</h4>
-              <Button color="orange" textContent="SEE PRODUCT" />
+              <Button
+                onClick={() => navigate(`${product.slug}`)}
+                color="orange"
+                textContent="SEE PRODUCT"
+              />
             </div>
           ))}
         </div>
