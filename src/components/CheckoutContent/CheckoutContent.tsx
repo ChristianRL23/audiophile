@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
-import { RootStateOrAny, useSelector } from 'react-redux';
+import { RootStateOrAny, useDispatch, useSelector } from 'react-redux';
 import { ProductCartModel } from '../../models';
+import { orderModalActions } from '../../store/orderModal';
 import Button from '../Button/Button';
 import CartItem from '../CartItem/CartItem';
 import CheckoutForm from '../CheckoutForm/CheckoutForm';
@@ -16,6 +17,7 @@ interface CheckoutTotalsModel {
 }
 
 const CheckoutContent = () => {
+  const dispatch = useDispatch();
   const [checkoutTotals, setCheckoutTotals] = useState<CheckoutTotalsModel>({
     total: 0,
     vat: 0,
@@ -36,6 +38,10 @@ const CheckoutContent = () => {
   const selectSecondRadio = () => {
     setSecondRadioSelected(true);
     setFirstRadioSelected(false);
+  };
+
+  const openOrderModal = () => {
+    dispatch(orderModalActions.open());
   };
 
   useEffect(() => {
@@ -197,6 +203,7 @@ const CheckoutContent = () => {
           />
         </div>
         <Button
+          onClick={openOrderModal}
           style={{ width: '100%' }}
           color="orange"
           textContent="CONTINUE"

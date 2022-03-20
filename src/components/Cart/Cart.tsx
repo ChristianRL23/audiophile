@@ -5,11 +5,10 @@ import { cartActions } from '../../store/cart';
 
 import Button from '../Button/Button';
 import CartItem from '../CartItem/CartItem';
-import InputNumber from '../InputNumber/InputNumber';
 import Modal from '../Modal/Modal';
 import './Cart.scss';
 
-const Cart = () => {
+const Cart = ({ type }: any) => {
   const [cartTotalItems, setCartTotalItems] = useState<number>(0);
   const [cartTotalToPay, setCartTotalToPay] = useState<number>(0);
   const cartProductsState: ProductCartModel[] = useSelector(
@@ -36,7 +35,7 @@ const Cart = () => {
   }, [cartProductsState]);
 
   return (
-    <Modal>
+    <Modal type={type}>
       <div className="cart">
         {cartProductsState.length === 0 ? (
           <h2 className="cart__empty">THE CART IS EMPTY</h2>

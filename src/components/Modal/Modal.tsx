@@ -2,21 +2,25 @@ import './Modal.scss';
 import ReactDOM from 'react-dom';
 import { useDispatch } from 'react-redux';
 import { cartActions } from '../../store/cart';
+import { orderModalActions } from './../../store/orderModal';
 
-const Backdrop = () => {
+const Backdrop = ({ type }: any) => {
   const dispatch = useDispatch();
+
+  const closeCartModal = () => dispatch(cartActions.closeCart());
+  const closeOrderModal = () => dispatch(orderModalActions.close());
 
   return (
     <div
-      onClick={() => dispatch(cartActions.closeCart())}
+      onClick={type === 'cart' ? closeCartModal : closeOrderModal}
       className="backdrop"
     />
   );
 };
 
-const ModalOverlay = ({ children }: any) => {
+const ModalOverlay = ({ children, type }: any) => {
   return (
-    <div className="modal">
+    <div className={`modal--${type}`}>
       <div>{children}</div>
     </div>
   );
@@ -24,15 +28,12 @@ const ModalOverlay = ({ children }: any) => {
 
 const portalElement = document.getElementById('overlays')!;
 
-const Modal = ({ children }: any) => {
+const Modal = ({ children, type }: any) => {
   return (
     <>
+      {ReactDOM.createPortal(<Backdrop type={type} />, portalElement)}
       {ReactDOM.createPortal(
-        <Backdrop />,
-        portalElement
-      )}
-      {ReactDOM.createPortal(
-        <ModalOverlay>{children}</ModalOverlay>,
+        <ModalOverlay type={type}>{children}</ModalOverlay>,
         portalElement
       )}
     </>

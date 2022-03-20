@@ -1,0 +1,27 @@
+@use './../../shared' as s;
+
+.order-modal {
+  padding: 2.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+
+  &__icon {
+    width: 5rem;
+  }
+
+  &__title {
+    font-size: 3.2rem;
+    letter-spacing: 1.4px;
+    font-weight: 600;
+    line-height: 1.1;
+
+    span {
+      display: block;
+    }
+  }
+
+  &__paragraph {
+    @include s.paragraph(rgba(0, 0, 0, 0.5));
+  }
+}
