@@ -1,0 +1,50 @@
+.order-resume {
+  display: flex;
+  border-radius: var(--border-radius);
+  overflow: hidden;
+
+  &__total {
+    flex: 1;
+    padding: 0 2rem;
+    background-color: #191919;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 0.7rem;
+
+    h6 {
+      color: rgba(255, 255, 255, 0.5);
+      font-size: 1.5rem;
+      font-weight: 400;
+    }
+
+    h5 {
+      color: var(--color-primary-white);
+      font-weight: 600;
+      font-size: 1.8rem;
+    }
+  }
+
+  &__products {
+    width: 55%;
+    padding: 1rem 2rem 2rem 2rem;
+    background-color: var(--color-primary-gray);
+    max-height: 27rem;
+    overflow-y: auto;
+  }
+
+  &__action {
+    display: flex;
+    justify-content: center;
+    background-color: var(--color-primary-gray);
+    border-top: 1px solid rgba(0, 0, 0, 0.08);
+
+    h6 {
+      margin-top: 1rem;
+      color: rgba(0, 0, 0, 0.5);
+      font-size: 1.2rem;
+      font-weight: 600;
+      cursor: pointer;
+    }
+  }
+}

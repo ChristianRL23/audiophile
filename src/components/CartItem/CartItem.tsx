@@ -7,16 +7,28 @@ interface CartItemProps {
   price: number;
   quantity: number;
   cart: boolean;
+  style?: object;
 }
 
-const CartItem = ({ image, name, price, quantity, cart }: CartItemProps) => {
+const CartItem = ({
+  image,
+  name,
+  price,
+  quantity,
+  cart,
+  style,
+}: CartItemProps) => {
   const generateProductNameForCart = (productName: string) => {
     const lastIndex = productName.lastIndexOf(' ');
     return productName.substring(0, lastIndex);
   };
 
   return (
-    <div key={Math.random().toString(16).slice(2)} className="cart-item">
+    <div
+      style={style}
+      key={Math.random().toString(16).slice(2)}
+      className="cart-item"
+    >
       <div className="cart-item__left">
         <img src={image} alt="Product cart item" />
         <div>
