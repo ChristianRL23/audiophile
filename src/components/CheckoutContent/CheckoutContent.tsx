@@ -185,7 +185,7 @@ const CheckoutContent = () => {
         <div className="checkout-content__right__cart-items">
           {cartProductsStore.map((product) => (
             <CartItem
-              key={Date.now() + Math.random()}
+              key={Math.random().toString(16).slice(2)}
               image={product.image}
               name={product.name}
               price={product.price!}

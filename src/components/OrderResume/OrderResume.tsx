@@ -28,7 +28,7 @@ const OrderResume = ({ arrCartProducts }: OrderResumeProps) => {
         ) : (
           arrCartProducts.map((product) => (
             <CartItem
-              key={Date.now() + Math.random()}
+              key={Math.random().toString(16).slice(2)}
               cart={false}
               image={product.image}
               name={product.name}
