@@ -21,3 +21,14 @@
   font-size: 1.5rem;
   line-height: 1.5;
 }
+
+@mixin toastStyles {
+  .toastProgress {
+    background: var(--color-primary-orange) !important;
+  }
+
+  .toastBody {
+    @include paragraph(rgba(0, 0, 0, 0.5));
+    font-size: 1.35rem;
+  }
+}

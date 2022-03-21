@@ -1,4 +1,5 @@
 import { createSlice } from '@reduxjs/toolkit';
+import { toast } from 'react-toastify';
 import { ProductCartModel } from '../models';
 
 interface ProductPayload {
@@ -30,6 +31,9 @@ const cartSlice = createSlice({
 
       if (!productAdded) {
         state.products.push(payload.payload);
+        toast('Product(s) added to cart successfully', {
+          type: 'success',
+        });
       } else {
         const productAddedIndex = state.products.findIndex(
           (product) => product.name === payload.payload.name
@@ -39,11 +43,18 @@ const cartSlice = createSlice({
             payload.payload.quantity >
           10
         ) {
-          alert('ERROR');
-          //TODO: SHOW ERROR AND RESTORE THE INPUT WHEN IS SUBMITTED
+          toast(
+            'It is not allowed to add more than 10 items of the same product to the cart',
+            {
+              type: 'error',
+            }
+          );
         } else {
           state.products[productAddedIndex].quantity +=
             payload.payload.quantity;
+          toast('Product(s) added to cart successfully', {
+            type: 'success',
+          });
         }
       }
     },

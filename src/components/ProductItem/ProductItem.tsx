@@ -5,6 +5,8 @@ import { cartActions } from '../../store/cart';
 import Button from '../Button/Button';
 import InputNumber from '../InputNumber/InputNumber';
 import './ProductItem.scss';
+import { ToastContainer, Slide } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 interface ProductItemProps {
   name: string;
@@ -47,6 +49,7 @@ const ProductItem = ({
       {productNameArr[keywordIndex]}
     </h4>
   );
+
   const openProductLayout = () => navigate(`${slug}`);
 
   const addProductToCart = () => {
@@ -90,6 +93,20 @@ const ProductItem = ({
                 onClick={addProductToCart}
                 color="orange"
                 textContent="ADD TO CART"
+              />
+              <ToastContainer
+                transition={Slide}
+                position="bottom-right"
+                autoClose={2000}
+                hideProgressBar={false}
+                newestOnTop={false}
+                closeOnClick
+                rtl={false}
+                pauseOnFocusLoss
+                draggable
+                pauseOnHover
+                progressClassName="toastProgress"
+                bodyClassName="toastBody"
               />
             </div>
           )}
