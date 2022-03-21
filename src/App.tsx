@@ -8,6 +8,7 @@ import Category from './layouts/Category/Category';
 import Checkout from './layouts/Checkout/Checkout';
 import Home from './layouts/Home/Home';
 import Product from './layouts/Product/Product';
+import NoEmptyCart from './utils/NoEmptyCart';
 
 const Wrapper = ({ children }: any) => {
   const location = useLocation();
@@ -34,7 +35,14 @@ function App() {
         <Route path="/" element={<Home />} />
         <Route path="/:category" element={<Category />} />
         <Route path="/:category/:product" element={<Product />} />
-        <Route path="/checkout" element={<Checkout />} />
+        <Route
+          path="/checkout"
+          element={
+            <NoEmptyCart>
+              <Checkout />
+            </NoEmptyCart>
+          }
+        />
       </Routes>
     </Wrapper>
   );
