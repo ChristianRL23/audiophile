@@ -9,8 +9,12 @@ import './Category.scss';
 
 const Category = () => {
   const params = useParams();
+  const availableCategories = ['earphones', 'headphones', 'speakers'];
+  const validCategory = availableCategories.find(
+    (category) => category === params.category
+  );
 
-  return (
+  return validCategory ? (
     <>
       <Header />
       <CategoryHeader categoryName={params.category!} />
@@ -19,6 +23,8 @@ const Category = () => {
       <About />
       <Footer />
     </>
+  ) : (
+    <p>404</p>
   );
 };
 
