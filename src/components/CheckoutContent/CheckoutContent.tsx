@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
 import { RootStateOrAny, useDispatch, useSelector } from 'react-redux';
+import { toast, ToastContainer } from 'react-toastify';
 import { ProductCartModel } from '../../models';
 import { orderModalActions } from '../../store/orderModal';
 import Button from '../Button/Button';
@@ -41,7 +42,17 @@ const CheckoutContent = () => {
   };
 
   const openOrderModal = () => {
-    dispatch(orderModalActions.open());
+    const functionThatReturnPromise = () =>
+      new Promise((resolve) =>
+        setTimeout(() => {
+          resolve(null);
+          dispatch(orderModalActions.open());
+        }, 3000)
+      );
+    toast.promise(functionThatReturnPromise, {
+      pending: 'Please wait...',
+      success: 'Purchase made successfully!',
+    });
   };
 
   useEffect(() => {
@@ -207,6 +218,19 @@ const CheckoutContent = () => {
           style={{ width: '100%' }}
           color="orange"
           textContent="CONTINUE"
+        />
+        <ToastContainer
+          position="bottom-right"
+          autoClose={3000}
+          hideProgressBar={false}
+          newestOnTop={false}
+          closeOnClick
+          rtl={false}
+          pauseOnFocusLoss
+          draggable
+          pauseOnHover
+          progressClassName="toastProgress"
+          bodyClassName="toastBody"
         />
       </div>
     </section>
