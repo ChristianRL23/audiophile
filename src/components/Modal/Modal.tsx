@@ -11,7 +11,12 @@ const Backdrop = () => {
   return <div onClick={closeCartModal} className="backdrop" />;
 };
 
-const ModalOverlay = ({ children, type }: any) => {
+interface ModalProps {
+  children: JSX.Element;
+  type: string;
+}
+
+const ModalOverlay = ({ children, type }: ModalProps) => {
   return (
     <div className={`modal--${type}`}>
       <div>{children}</div>
@@ -21,7 +26,7 @@ const ModalOverlay = ({ children, type }: any) => {
 
 const portalElement = document.getElementById('overlays')!;
 
-const Modal = ({ children, type }: any) => {
+const Modal = ({ children, type }: ModalProps) => {
   return (
     <>
       {ReactDOM.createPortal(<Backdrop />, portalElement)}

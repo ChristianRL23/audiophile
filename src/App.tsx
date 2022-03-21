@@ -25,8 +25,6 @@ function App() {
     (state: RootStateOrAny) => state.orderModal
   );
 
-  //TODO: CHANGE THE TYPE OF PROPS OF THE MODAL IN EVERY MODAL USE
-
   return (
     <Wrapper>
       {cartState.displayed && <Cart type="cart" />}

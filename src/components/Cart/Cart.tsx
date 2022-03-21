@@ -9,7 +9,11 @@ import CartItem from '../CartItem/CartItem';
 import Modal from '../Modal/Modal';
 import './Cart.scss';
 
-const Cart = ({ type }: any) => {
+interface CartProps {
+  type: string;
+}
+
+const Cart = ({ type }: CartProps) => {
   const navigate = useNavigate();
   const [cartTotalItems, setCartTotalItems] = useState<number>(0);
   const [cartTotalToPay, setCartTotalToPay] = useState<number>(0);

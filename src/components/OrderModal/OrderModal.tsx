@@ -8,7 +8,11 @@ import { ProductCartModel } from '../../models';
 import { useNavigate } from 'react-router-dom';
 import { orderModalActions } from '../../store/orderModal';
 
-const OrderModal = ({ type }: any) => {
+interface OrderModalProps {
+  type: string;
+}
+
+const OrderModal = ({ type }: OrderModalProps) => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const backToHome = () => {
