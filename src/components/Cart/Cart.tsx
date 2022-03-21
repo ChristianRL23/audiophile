@@ -61,6 +61,7 @@ const Cart = ({ type }: CartProps) => {
             <div className="cart__items">
               {cartProductsState.map((product) => (
                 <CartItem
+                  key={Date.now() + Math.random()}
                   name={product.name}
                   price={product.price!}
                   quantity={product.quantity}

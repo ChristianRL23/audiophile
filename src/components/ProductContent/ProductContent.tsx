@@ -33,7 +33,7 @@ const ProductContent = () => {
           <h3>IN THE BOX</h3>
           <div className="product-content__features__content__items">
             {productSelected?.includes.map((feature) => (
-              <div>
+              <div key={Date.now() + Math.random()}>
                 <h6>{feature.quantity}x</h6>
                 <p>{feature.item}</p>
               </div>
@@ -50,7 +50,10 @@ const ProductContent = () => {
         <h3>YOU MAY ALSO LIKE</h3>
         <div className="product-content__others__items">
           {productSelected!.others.map((product) => (
-            <div className="product-content__others__items__item">
+            <div
+              key={Date.now() + Math.random()}
+              className="product-content__others__items__item"
+            >
               <img src={product.image.desktop} alt="Other product" />
               <h4>{product.name}</h4>
               <Button

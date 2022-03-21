@@ -18,6 +18,7 @@ const InputNumber = React.forwardRef<HTMLInputElement, InputNumberProps>(
       if (operation === 'minus') {
         if (inputValue === 1 && props.cartItem) {
           dispatch(cartActions.deleteProduct(props.cartItem));
+          return;
         } else if (inputValue === 1) {
           return;
         }
