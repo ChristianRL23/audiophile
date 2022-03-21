@@ -37,13 +37,15 @@ const OrderResume = ({ arrCartProducts }: OrderResumeProps) => {
             />
           ))
         )}
-        <div className="order-resume__action">
-          <h6 onClick={flipAction}>
-            {lessProductsDisplayed
-              ? `and ${arrCartProducts.length - 1} other item(s)`
-              : 'View less'}
-          </h6>
-        </div>
+        {arrCartProducts.length > 1 && (
+          <div className="order-resume__action">
+            <h6 onClick={flipAction}>
+              {lessProductsDisplayed
+                ? `and ${arrCartProducts.length - 1} other item(s)`
+                : 'View less'}
+            </h6>
+          </div>
+        )}
       </div>
       <div className="order-resume__total">
         <h6>GRAND TOTAL</h6>
