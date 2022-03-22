@@ -4,7 +4,7 @@ interface InputProps {
   placeholder?: string;
   label: string;
   size: 'short' | 'long';
-  type: 'number' | 'text' | 'radio';
+  type: 'number' | 'text' | 'radio' | 'password';
   radioLabel?: string;
   onClick?: () => void;
   radioSelected?: boolean;

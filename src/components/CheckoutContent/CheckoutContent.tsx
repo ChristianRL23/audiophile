@@ -174,10 +174,10 @@ const CheckoutContent = () => {
                   null,
                   dispatchCheckoutForm
                 )}
-                type="number"
+                type="text"
                 size="short"
                 label="Phone Number"
-                placeholder="+1 202-555-0136"
+                placeholder="(202) 555-0136"
               />
             </>
           </CheckoutForm>
@@ -271,7 +271,7 @@ const CheckoutContent = () => {
                       null,
                       dispatchCheckoutForm
                     )}
-                    type="number"
+                    type="password"
                     size="short"
                     label="e-Money PIN"
                     placeholder="6891"
