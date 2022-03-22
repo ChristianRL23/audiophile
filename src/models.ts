@@ -31,3 +31,22 @@ export interface ProductCartModel {
   quantity: number;
   image: string;
 }
+
+interface CheckoutFieldProperties {
+  value: string;
+  errorMsg: string;
+  valid: null | boolean;
+}
+
+export interface CheckoutFieldModel {
+  name: CheckoutFieldProperties;
+  email: CheckoutFieldProperties;
+  phoneNumber: CheckoutFieldProperties;
+  paymentMethod?: { value: string };
+  address: CheckoutFieldProperties;
+  zipCode: CheckoutFieldProperties;
+  city: CheckoutFieldProperties;
+  country: CheckoutFieldProperties;
+  eMoneyNumber: CheckoutFieldProperties;
+  eMoneyPin: CheckoutFieldProperties;
+}

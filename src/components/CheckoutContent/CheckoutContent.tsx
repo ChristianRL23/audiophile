@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useReducer, useState } from 'react';
 import { RootStateOrAny, useDispatch, useSelector } from 'react-redux';
 import { toast, ToastContainer } from 'react-toastify';
 import { ProductCartModel } from '../../models';
@@ -9,7 +9,21 @@ import CheckoutForm from '../CheckoutForm/CheckoutForm';
 import CheckoutTotalsItem from '../CheckoutTotalsItem/CheckoutTotalsItem';
 import Input from '../Input/Input';
 import './CheckoutContent.scss';
+import {
+  changeAddressInputHandler,
+  changeCityInputHandler,
+  changeCountryInputHandler,
+  changeEmailInputHandler,
+  changeEMoneyNumberInputHandler,
+  changeEMoneyPinNumberInputHandler,
+  changeNameInputHandler,
+  changePhoneInputHandler,
+  changeZipCodeInputHandler,
+  checkoutFormInitialState,
+  checkoutFormReducer,
+} from './checkoutForm';
 import deliveryIcon from './Shape.svg';
+import { verifySignupInputs } from './verifyCheckoutInputs';
 
 interface CheckoutTotalsModel {
   total: number;
@@ -41,19 +55,63 @@ const CheckoutContent = () => {
     setFirstRadioSelected(false);
   };
 
+  const [checkoutFormState, dispatchCheckoutForm] = useReducer(
+    checkoutFormReducer,
+    checkoutFormInitialState
+  );
+
+  const {
+    name,
+    email,
+    phoneNumber,
+    address,
+    zipCode,
+    city,
+    country,
+    eMoneyNumber,
+    eMoneyPin,
+  } = checkoutFormState;
+
   const openOrderModal = () => {
-    const functionThatReturnPromise = () =>
-      new Promise((resolve) =>
-        setTimeout(() => {
-          resolve(null);
-          dispatch(orderModalActions.open());
-        }, 3000)
-      );
-    toast.promise(functionThatReturnPromise, {
-      pending: 'Please wait...',
-      success: 'Purchase made successfully!',
-    });
+    verifySignupInputs(checkoutFormState, dispatchCheckoutForm);
   };
+
+  useEffect(() => {
+    let inputsStatus = [];
+
+    for (const inputName in checkoutFormState) {
+      inputsStatus.push(checkoutFormState[inputName].valid);
+    }
+
+    if (secondRadioSelected) {
+      inputsStatus = inputsStatus.slice(0, -2);
+    }
+
+    if (inputsStatus.every((currentValue) => currentValue === true)) {
+      const functionThatReturnPromise = () =>
+        new Promise((resolve) =>
+          setTimeout(() => {
+            resolve(null);
+            dispatch(orderModalActions.open());
+          }, 3000)
+        );
+      toast.promise(functionThatReturnPromise, {
+        pending: 'Please wait...',
+        success: 'Purchase made successfully!',
+      });
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [
+    name.valid,
+    email.valid,
+    phoneNumber.valid,
+    address.valid,
+    zipCode.valid,
+    city.valid,
+    country.valid,
+    eMoneyNumber.valid,
+    eMoneyPin.valid,
+  ]);
 
   useEffect(() => {
     //TOTAL
@@ -86,18 +144,36 @@ const CheckoutContent = () => {
           <CheckoutForm name="BILLING DETAILS">
             <>
               <Input
+                value={name.value}
+                error={name.errorMsg}
+                onChange={changeNameInputHandler.bind(
+                  null,
+                  dispatchCheckoutForm
+                )}
                 type="text"
                 size="short"
-                label="Name"
+                label="Full Name"
                 placeholder="Alexei Ward"
               />
               <Input
+                value={email.value}
+                error={email.errorMsg}
+                onChange={changeEmailInputHandler.bind(
+                  null,
+                  dispatchCheckoutForm
+                )}
                 type="text"
                 size="short"
                 label="Email Address"
                 placeholder="alexei@mail.com"
               />
               <Input
+                value={phoneNumber.value}
+                error={phoneNumber.errorMsg}
+                onChange={changePhoneInputHandler.bind(
+                  null,
+                  dispatchCheckoutForm
+                )}
                 type="number"
                 size="short"
                 label="Phone Number"
@@ -108,24 +184,48 @@ const CheckoutContent = () => {
           <CheckoutForm name="SHIPPING INFO">
             <>
               <Input
+                value={address.value}
+                error={address.errorMsg}
+                onChange={changeAddressInputHandler.bind(
+                  null,
+                  dispatchCheckoutForm
+                )}
                 type="text"
                 size="long"
                 label="Address"
                 placeholder="1137 Williams Avenue"
               />
               <Input
+                value={zipCode.value}
+                error={zipCode.errorMsg}
+                onChange={changeZipCodeInputHandler.bind(
+                  null,
+                  dispatchCheckoutForm
+                )}
                 type="number"
                 size="short"
                 label="ZIP Code"
                 placeholder="10001"
               />
               <Input
+                value={city.value}
+                error={city.errorMsg}
+                onChange={changeCityInputHandler.bind(
+                  null,
+                  dispatchCheckoutForm
+                )}
                 type="text"
                 size="short"
                 label="City"
                 placeholder="New York"
               />
               <Input
+                value={country.value}
+                error={country.errorMsg}
+                onChange={changeCountryInputHandler.bind(
+                  null,
+                  dispatchCheckoutForm
+                )}
                 type="text"
                 size="short"
                 label="Country"
@@ -153,12 +253,24 @@ const CheckoutContent = () => {
               {firstRadioSelected ? (
                 <>
                   <Input
+                    error={eMoneyNumber.errorMsg}
+                    onChange={changeEMoneyNumberInputHandler.bind(
+                      null,
+                      dispatchCheckoutForm
+                    )}
                     type="number"
                     size="short"
                     label="e-Money Number"
-                    placeholder="238521993"
+                    placeholder="238521"
+                    value={eMoneyNumber.value}
                   />
                   <Input
+                    value={eMoneyPin.value}
+                    error={eMoneyPin.errorMsg}
+                    onChange={changeEMoneyPinNumberInputHandler.bind(
+                      null,
+                      dispatchCheckoutForm
+                    )}
                     type="number"
                     size="short"
                     label="e-Money PIN"

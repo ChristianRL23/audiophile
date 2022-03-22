@@ -8,6 +8,9 @@ interface InputProps {
   radioLabel?: string;
   onClick?: () => void;
   radioSelected?: boolean;
+  onChange?: any;
+  error?: string;
+  value?: string;
 }
 
 const Input = ({
@@ -18,6 +21,9 @@ const Input = ({
   radioLabel,
   onClick,
   radioSelected,
+  onChange,
+  error,
+  value,
 }: InputProps) => {
   if (type === 'radio') {
     return (
@@ -51,8 +57,23 @@ const Input = ({
   } else {
     return (
       <div className={`input--${size}`}>
-        <label htmlFor={label}>{label}</label>
-        <input type={type} id={label} placeholder={placeholder} />
+        <div className="input__labels">
+          <label
+            className={`input__labels__label${error !== '' ? '--error' : ''}`}
+            htmlFor={label}
+          >
+            {label}
+          </label>
+          {error !== '' && <h6 className="input__labels__error">{error}</h6>}
+        </div>
+        <input
+          value={value}
+          className={`input__input${error !== '' ? '--error' : ''}`}
+          onChange={onChange}
+          type={type}
+          id={label}
+          placeholder={placeholder}
+        />
       </div>
     );
   }

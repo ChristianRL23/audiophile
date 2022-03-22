@@ -84,12 +84,28 @@
     }
   }
 
-  label {
-    font-size: 1.45rem;
-    font-weight: 600;
+  &__labels {
+    display: flex;
+    justify-content: space-between;
+
+    &__label {
+      font-size: 1.45rem;
+      font-weight: 600;
+
+      &--error {
+        @extend .input__labels__label;
+        color: #cd2c2c;
+      }
+    }
+
+    h6 {
+      font-weight: 500;
+      color: #cd2c2c;
+      font-size: 1.2rem;
+    }
   }
 
-  input {
+  &__input {
     border: 1.9px solid #cfcfcf;
     border-radius: var(--border-radius);
     font-size: 1.6rem;
@@ -114,6 +130,16 @@
 
     &::placeholder {
       color: #a8a8a8;
+    }
+
+    &--error {
+      @extend .input__input;
+      border: 2px solid #cd2c2c;
+
+      &:focus {
+        outline: none;
+        border: 2px solid #cd2c2c;
+      }
     }
   }
 }
