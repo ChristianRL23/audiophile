@@ -28,7 +28,7 @@
 
   &--black {
     @extend .button;
-    background-color: var(--color-primary-black);
+    background-color: #191919;
     color: var(--color-primary-white);
     &:hover {
       background-color: #4c4c4c;
