@@ -7,6 +7,7 @@ import { RootStateOrAny, useDispatch, useSelector } from 'react-redux';
 import { ProductCartModel } from '../../models';
 import { useNavigate } from 'react-router-dom';
 import { orderModalActions } from '../../store/orderModal';
+import { cartActions } from '../../store/cart';
 
 interface OrderModalProps {
   type: string;
@@ -18,6 +19,7 @@ const OrderModal = ({ type }: OrderModalProps) => {
   const backToHome = () => {
     navigate('/');
     dispatch(orderModalActions.close());
+    dispatch(cartActions.removeAllProducts());
   };
   const cartState: ProductCartModel[] = useSelector(
     (state: RootStateOrAny) => state.cart.products
