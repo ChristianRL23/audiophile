@@ -4,7 +4,7 @@
   @include s.containerPadding;
   background-image: url('./image-hero.jpg');
   height: 80vh;
-  background-position: center;
+  background-position: 40% 570px;
   background-size: cover;
   margin-bottom: 5rem;
 
@@ -29,6 +29,7 @@
       }
       &-description {
         @include s.paragraph(#ffffffb2);
+        letter-spacing: 1.6px;
       }
     }
   }

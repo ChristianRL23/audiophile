@@ -4,6 +4,7 @@ import Footer from '../../components/Footer/Footer';
 import Header from '../../components/Header/Header';
 import About from '../About/About';
 import CategoryGrid from '../CategoryGrid/CategoryGrid';
+import NotFound from '../NotFound/NotFound';
 import ProductsCategory from '../ProductsCategory/ProductsCategory';
 import './Category.scss';
 
@@ -24,7 +25,7 @@ const Category = () => {
       <Footer />
     </>
   ) : (
-    <p>404</p>
+    <NotFound />
   );
 };
 

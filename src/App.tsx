@@ -7,6 +7,7 @@ import OrderModal from './components/OrderModal/OrderModal';
 import Category from './layouts/Category/Category';
 import Checkout from './layouts/Checkout/Checkout';
 import Home from './layouts/Home/Home';
+import NotFound from './layouts/NotFound/NotFound';
 import Product from './layouts/Product/Product';
 import NoEmptyCart from './utils/NoEmptyCart';
 
@@ -41,6 +42,7 @@ function App() {
             </NoEmptyCart>
           }
         />
+        <Route path="*" element={<NotFound />} />
       </Routes>
     </Wrapper>
   );
