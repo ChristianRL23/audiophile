@@ -78,6 +78,9 @@ const cartSlice = createSlice({
         (product) => product.name !== payload.payload
       );
     },
+    saveProducts(state, payload) {
+      state.products = payload.payload;
+    },
   },
 });
 

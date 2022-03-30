@@ -8,6 +8,7 @@ import { ProductCartModel } from '../../models';
 import { useNavigate } from 'react-router-dom';
 import { orderModalActions } from '../../store/orderModal';
 import { cartActions } from '../../store/cart';
+import { useEffect } from 'react';
 
 interface OrderModalProps {
   type: string;
@@ -24,6 +25,10 @@ const OrderModal = ({ type }: OrderModalProps) => {
   const cartState: ProductCartModel[] = useSelector(
     (state: RootStateOrAny) => state.cart.products
   );
+
+  useEffect(() => {
+    localStorage.setItem('cartProducts', JSON.stringify([]));
+  }, []);
 
   return (
     <Modal type={type}>
