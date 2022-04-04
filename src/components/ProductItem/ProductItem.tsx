@@ -65,7 +65,9 @@ const ProductItem = ({
 
   return (
     <div className={`product-item--${direction}`}>
-      <img src={image} alt="Product" />
+      <div className="product-item__image">
+        <img src={image} alt="Product" />
+      </div>
       <div className="product-item__content">
         <div className="product-item__content__text">
           {isNew && (
