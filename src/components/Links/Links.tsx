@@ -1,9 +1,21 @@
 import { Link } from 'react-router-dom';
 import './Links.scss';
 
-const Links = () => {
+interface LinksProps {
+  style?: object;
+}
+
+const Links = ({ style }: LinksProps) => {
+  const renderStyles = () => {
+    let styles: React.CSSProperties = {};
+    if (style) {
+      styles = style;
+    }
+    return styles;
+  };
+
   return (
-    <div className="links">
+    <div style={renderStyles()} className="links">
       <Link className="links__link" to="/">
         HOME
       </Link>
