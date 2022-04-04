@@ -1,0 +1,73 @@
+@use './../../shared' as s;
+
+.individual-product {
+  display: flex;
+  gap: 8rem;
+
+  @media screen and (max-width: 800px) {
+    gap: 4rem;
+  }
+
+  @media screen and (max-width: 715px) {
+    flex-direction: column;
+  }
+
+  &__image {
+    border-radius: var(--border-radius);
+    overflow: hidden;
+    max-width: 50rem;
+
+    img {
+      width: 100%;
+    }
+
+    img {
+      height: 100%;
+      width: 100%;
+      object-fit: cover;
+    }
+  }
+  &__content {
+    display: flex;
+    align-items: center;
+
+    &__text {
+      &__label {
+        @include s.newProductLabel(var(--color-primary-orange));
+      }
+
+      &__name {
+        font-size: 4rem;
+        font-weight: 600;
+        text-transform: uppercase;
+        margin-bottom: 1.5rem;
+
+        @media screen and (max-width: 750px) {
+          font-size: 3rem;
+          margin-top: 1rem;
+        }
+
+        span {
+          display: block;
+        }
+      }
+
+      &__description {
+        @include s.paragraph(rgba(0, 0, 0, 0.5));
+        margin-bottom: 2rem;
+      }
+
+      &__price {
+        margin-bottom: 3rem;
+        font-size: 2rem;
+      }
+
+      &__buttons {
+        gap: 2rem;
+        display: flex;
+      }
+    }
+  }
+}
+
+@include s.toastStyles;

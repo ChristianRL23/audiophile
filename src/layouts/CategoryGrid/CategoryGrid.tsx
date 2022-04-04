@@ -51,7 +51,6 @@ const CategoryGrid = () => {
             image={productImage}
             isNew={product.new}
             direction={direction}
-            gridItem={true}
             slug={product.slug}
           />
         );

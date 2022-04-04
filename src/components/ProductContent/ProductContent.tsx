@@ -1,9 +1,10 @@
 import { useLocation, useNavigate } from 'react-router-dom';
 import data from './../../data/data.json';
-import ProductItem from '../../components/ProductItem/ProductItem';
 import './ProductContent.scss';
 import { ProductModel } from '../../models';
 import Button from '../Button/Button';
+import IndividualProduct from '../IndividualProduct/IndividualProduct';
+import { useMediaQuery } from 'react-responsive';
 
 const ProductContent = () => {
   const navigate = useNavigate();
@@ -12,15 +13,21 @@ const ProductContent = () => {
   const productSelected = productData.find(
     (product) => product.slug === location.pathname
   );
+  const isTablet = useMediaQuery({
+    query: '(max-width: 715px)',
+  });
 
   return (
     <section className="product-content">
-      <ProductItem
+      <IndividualProduct
         name={productSelected!.name}
         description={productSelected!.description}
-        gridItem={false}
         isNew={productSelected!.new}
-        image={productSelected!.image.desktop}
+        image={
+          isTablet
+            ? productSelected!.image.mobile
+            : productSelected!.image.desktop
+        }
         cartImage={productSelected!.cartImage}
         price={productSelected!.price}
       />
@@ -42,9 +49,30 @@ const ProductContent = () => {
         </div>
       </div>
       <div className="product-content__gallery">
-        <img src={productSelected!.gallery.first.desktop} alt="Product" />
-        <img src={productSelected!.gallery.second.desktop} alt="Product" />
-        <img src={productSelected!.gallery.third.desktop} alt="Product" />
+        <img
+          src={
+            isTablet
+              ? productSelected!.gallery.first.mobile
+              : productSelected!.gallery.first.desktop
+          }
+          alt="Product"
+        />
+        <img
+          src={
+            isTablet
+              ? productSelected!.gallery.second.mobile
+              : productSelected!.gallery.second.desktop
+          }
+          alt="Product"
+        />
+        <img
+          src={
+            isTablet
+              ? productSelected!.gallery.third.mobile
+              : productSelected!.gallery.third.desktop
+          }
+          alt="Product"
+        />
       </div>
       <div className="product-content__others">
         <h3>YOU MAY ALSO LIKE</h3>
