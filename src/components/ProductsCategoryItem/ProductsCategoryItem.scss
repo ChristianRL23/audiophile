@@ -20,6 +20,21 @@
     &__image {
       width: 18rem;
       height: 16rem;
+
+      @media screen and (max-width: 745px) {
+        width: 15rem;
+        height: 13rem;
+      }
+
+      @media screen and (max-width: 640px) {
+        width: 18rem;
+        height: 16rem;
+      }
+
+      @media screen and (max-width: 400px) {
+        width: 15rem;
+        height: 13rem;
+      }
     }
 
     h5 {
