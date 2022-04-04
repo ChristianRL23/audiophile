@@ -3,10 +3,15 @@
 .hero {
   @include s.containerPadding;
   background-image: url('./image-hero.jpg');
-  height: 80vh;
-  background-position: 40% 570px;
+  height: 90vh;
+  background-position: 30% center;
   background-size: cover;
   margin-bottom: 5rem;
+
+  @media screen and (max-width: 1200px) {
+    background-image: url('./image-header.jpg');
+    background-size: cover;
+  }
 
   &__content {
     width: 40%;
@@ -16,6 +21,12 @@
     flex-direction: column;
     justify-content: center;
     gap: 2.5rem;
+
+    @media screen and (max-width: 1200px) {
+      align-items: center;
+      width: 100%;
+      text-align: center;
+    }
 
     &__label {
       @include s.newProductLabel(#ffffff83);

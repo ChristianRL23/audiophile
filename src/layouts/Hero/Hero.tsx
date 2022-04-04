@@ -1,9 +1,14 @@
+import { useMediaQuery } from 'react-responsive';
 import { useNavigate } from 'react-router-dom';
 import Button from '../../components/Button/Button';
 import './Hero.scss';
 
 const Hero = () => {
   const navigate = useNavigate();
+
+  const heroCenter = useMediaQuery({
+    query: '(max-width: 1200px)',
+  });
 
   return (
     <section className="hero">
@@ -16,7 +21,7 @@ const Hero = () => {
         </p>
         <Button
           onClick={() => navigate('/headphones/xx99-mark-two')}
-          style={{ alignSelf: 'flex-start' }}
+          style={{ alignSelf: `${heroCenter ? 'center' : 'flex-start'}` }}
           color="orange"
           textContent="SEE PRODUCT"
         />
