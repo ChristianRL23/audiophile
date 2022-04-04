@@ -1,7 +1,26 @@
 import './About.scss';
 import about from './about.jpg';
+import { useMediaQuery } from 'react-responsive';
 
 const About = () => {
+  const isTablet = useMediaQuery({
+    query: '(max-width: 790px)',
+  });
+
+  const isMobile = useMediaQuery({
+    query: '(max-width: 600px)',
+  });
+
+  let aboutImage: string;
+
+  if (isMobile) {
+    aboutImage = '/assets/shared/mobile/image-best-gear.jpg';
+  } else if (isTablet) {
+    aboutImage = '/assets/shared/tablet/image-best-gear.jpg';
+  } else {
+    aboutImage = about;
+  }
+
   return (
     <section className="about">
       <div className="about__content">
@@ -19,7 +38,9 @@ const About = () => {
           </p>
         </div>
       </div>
-      <img className="about__image" src={about} alt="About" />
+      <div className="about__image">
+        <img src={aboutImage} alt="About" />
+      </div>
     </section>
   );
 };
