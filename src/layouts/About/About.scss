@@ -11,6 +11,10 @@
     gap: 5rem;
   }
 
+  @media screen and (max-width: 870px) {
+    gap: 4rem;
+  }
+
   @media screen and (max-width: 790px) {
     flex-direction: column-reverse;
     gap: 3rem;
@@ -25,6 +29,7 @@
     @media screen and (max-width: 790px) {
       text-align: center;
     }
+
     &__text {
       h4 {
         text-transform: uppercase;
@@ -51,6 +56,11 @@
 
     img {
       width: 100%;
+    }
+
+    @media screen and (max-width: 870px) {
+      flex-basis: 15%;
+      height: 90%;
     }
   }
 }
