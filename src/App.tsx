@@ -33,10 +33,10 @@ function App() {
     const cartProductsLocalStorage = JSON.parse(
       localStorage.getItem('cartProducts')!
     );
-    if (cartProducts !== null) {
+    if (cartProductsLocalStorage !== null) {
       dispatch(cartActions.saveProducts(cartProductsLocalStorage));
     } else {
-      dispatch(cartActions.saveProducts([]));
+      localStorage.setItem('cartProducts', JSON.stringify([]));
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
