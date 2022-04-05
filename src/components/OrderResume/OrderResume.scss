@@ -3,6 +3,10 @@
   border-radius: var(--border-radius);
   overflow: hidden;
 
+  @media screen and (max-width: 500px) {
+    flex-direction: column;
+  }
+
   &__total {
     flex: 1;
     padding: 0 2rem;
@@ -11,6 +15,10 @@
     flex-direction: column;
     justify-content: center;
     gap: 0.7rem;
+
+    @media screen and (max-width: 500px) {
+      padding: 2rem;
+    }
 
     h6 {
       color: rgba(255, 255, 255, 0.5);
@@ -31,6 +39,10 @@
     background-color: var(--color-primary-gray);
     max-height: 27rem;
     overflow-y: auto;
+
+    @media screen and (max-width: 500px) {
+      width: 100%;
+    }
   }
 
   &__action {

@@ -6,6 +6,14 @@
   flex-direction: column;
   gap: 2rem;
 
+  @media screen and (max-width: 370px) {
+    padding: 2rem 1.5rem;
+  }
+
+  @media screen and (max-width: 370px) {
+    padding: 2rem 0.7rem;
+  }
+
   &__icon {
     width: 5rem;
   }
