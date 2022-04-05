@@ -63,3 +63,25 @@
     }
   }
 }
+
+.burger-menu {
+  background-color: #191919;
+}
+
+.head {
+  .close {
+    span {
+      svg {
+        color: var(--color-primary-white);
+      }
+    }
+  }
+}
+
+.menu {
+  background-color: transparent;
+}
+
+.bm-item {
+  @include s.link;
+}
