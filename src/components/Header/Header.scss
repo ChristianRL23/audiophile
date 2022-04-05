@@ -57,6 +57,7 @@
     order: 3;
 
     img {
+      cursor: pointer;
       @media screen and (max-width: 300px) {
         height: 1.8rem;
       }
