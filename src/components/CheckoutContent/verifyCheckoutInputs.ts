@@ -33,12 +33,6 @@ export const verifySignupInputs = (formState: any, formDispatch: Function) => {
       type: 'ERROR',
       errorMsg: 'The field cannot be empty',
     });
-    /* } else if (Number(formState.phoneNumber.value) < 0) {
-    formDispatch({
-      name: 'PHONE',
-      type: 'ERROR',
-      errorMsg: 'Wrong format',
-    }); */
   } else if (formState.phoneNumber.value.length < 6) {
     formDispatch({
       name: 'PHONE',
