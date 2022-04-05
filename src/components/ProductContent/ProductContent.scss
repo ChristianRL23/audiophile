@@ -9,6 +9,10 @@
   @include s.containerPadding;
   margin: 5rem 0;
 
+  @media screen and (max-width: 400px) {
+    padding: 2.5rem 2rem;
+  }
+
   &__features {
     display: flex;
     margin-top: 11rem;
