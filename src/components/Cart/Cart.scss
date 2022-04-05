@@ -2,7 +2,11 @@
   padding: 1rem;
   display: flex;
   flex-direction: column;
-  gap: 2rem;
+  gap: 3rem;
+
+  @media screen and (max-width: 350px) {
+    padding: 1rem 0.5rem;
+  }
 
   &__empty {
     text-align: center;

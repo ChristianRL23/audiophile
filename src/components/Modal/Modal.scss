@@ -20,6 +20,17 @@
     top: 14vh;
     right: 7%;
     width: 30%;
+
+    @media screen and (max-width: 1000px) {
+      top: 10vh;
+      width: 50%;
+    }
+
+    @media screen and (max-width: 650px) {
+      top: 14vh;
+      width: 90%;
+      right: 5%;
+    }
   }
 
   &--order {
