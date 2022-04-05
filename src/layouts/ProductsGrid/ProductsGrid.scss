@@ -17,6 +17,11 @@
   display: flex;
   align-items: center;
   padding-left: 8rem;
+
+  @media screen and (max-width: 600px) {
+    justify-content: flex-start;
+    padding-left: 2rem;
+  }
 }
 
 .products-grid {
@@ -28,6 +33,20 @@
   grid-template-columns: repeat(2, 1fr);
   column-gap: 2rem;
   row-gap: 3rem;
+
+  @media screen and (max-width: 800px) {
+    grid-template-rows: 50% 1fr 25%;
+  }
+
+  @media screen and (max-width: 685px) {
+    height: 150rem;
+    grid-template-columns: 100%;
+    grid-template-rows: 40% 1fr 15% 1fr;
+  }
+
+  @media screen and (max-width: 400px) {
+    padding: 2.5rem 2rem;
+  }
 
   & > div {
     border-radius: var(--border-radius);
@@ -44,11 +63,27 @@
         gap: 10rem;
         overflow: hidden;
 
+        @media screen and (max-width: 845px) {
+          gap: 5rem;
+        }
+
+        @media screen and (max-width: 800px) {
+          flex-direction: column;
+          gap: 3rem;
+        }
+
         img {
           transform: translateY(1.5rem);
           align-self: flex-end;
           width: 30rem;
           height: 80%;
+
+          @media screen and (max-width: 800px) {
+            height: 18rem;
+            align-self: center;
+            transform: translateY(0);
+            width: 15rem;
+          }
         }
 
         &__text {
@@ -58,11 +93,28 @@
           flex-direction: column;
           gap: 1.5rem;
 
+          @media screen and (max-width: 800px) {
+            width: 50%;
+            text-align: center;
+
+            button {
+              align-self: center !important;
+            }
+          }
+
+          @media screen and (max-width: 610px) {
+            width: 90%;
+          }
+
           h4 {
             color: var(--color-primary-white);
             font-size: 5.5rem;
             line-height: 1;
             font-weight: 600;
+
+            @media screen and (max-width: 460px) {
+              font-size: 4rem;
+            }
 
             span {
               display: block;
@@ -84,6 +136,24 @@
         grid-row: 2 / 3;
         background-size: cover;
         @include productTextBox;
+
+        @media screen and (max-width: 1050px) {
+          background-image: url('./tablet/image-speaker-zx7.jpg');
+          background-position: center right;
+        }
+
+        @media screen and (max-width: 685px) {
+          background-image: url('./mobile/image-speaker-zx7.jpg');
+          background-position: center;
+        }
+
+        &__text {
+          @media screen and (max-width: 415px) {
+            span {
+              display: block;
+            }
+          }
+        }
       }
     }
 
@@ -94,12 +164,36 @@
         grid-row: 3 / -1;
         background-size: cover;
         background-position: center;
+
+        @media screen and (max-width: 1050px) {
+          background-image: url('./tablet/image-earphones-yx1.jpg');
+        }
+
+        @media screen and (max-width: 685px) {
+          grid-row: 3 / 4;
+        }
       }
 
       &-cta {
         @include productTextPosition;
-        background-color: var(--color-primary-gray);
         @include productTextBox;
+        background-color: var(--color-primary-gray);
+
+        @media screen and (max-width: 1050px) {
+          padding: 0;
+          justify-content: center;
+        }
+
+        @media screen and (max-width: 600px) {
+          justify-content: flex-start;
+          padding-left: 2rem;
+        }
+
+        @media screen and (max-width: 415px) {
+          span {
+            display: block;
+          }
+        }
       }
     }
   }
