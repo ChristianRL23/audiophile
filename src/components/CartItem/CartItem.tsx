@@ -18,11 +18,6 @@ const CartItem = ({
   cart,
   style,
 }: CartItemProps) => {
-  const generateProductNameForCart = (productName: string) => {
-    const lastIndex = productName.lastIndexOf(' ');
-    return productName.substring(0, lastIndex);
-  };
-
   return (
     <div
       style={style}
@@ -32,7 +27,7 @@ const CartItem = ({
       <div className="cart-item__left">
         <img src={image} alt="Product cart item" />
         <div>
-          <h5>{generateProductNameForCart(name)}</h5>
+          <h5>{name}</h5>
           <h6>${price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',')}</h6>
         </div>
       </div>

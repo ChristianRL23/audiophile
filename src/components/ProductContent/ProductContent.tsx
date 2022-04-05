@@ -25,6 +25,7 @@ const ProductContent = () => {
     <section className="product-content">
       <IndividualProduct
         name={productSelected!.name}
+        cartName={productSelected!.cartName}
         description={productSelected!.description}
         isNew={productSelected!.new}
         image={

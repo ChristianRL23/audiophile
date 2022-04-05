@@ -14,6 +14,7 @@ export interface ProductModel {
   image: ImageModel;
   includes: { quantity: number; item: string }[];
   name: string;
+  cartName: string;
   cartImage: string;
   new: boolean;
   others: {

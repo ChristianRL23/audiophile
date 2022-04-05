@@ -14,6 +14,7 @@ interface IndividualProductProps {
   image: string;
   cartImage: string;
   price: number;
+  cartName: string;
 }
 
 const IndividualProduct = ({
@@ -23,6 +24,7 @@ const IndividualProduct = ({
   image,
   cartImage,
   price,
+  cartName,
 }: IndividualProductProps) => {
   const params = useParams();
   const dispatch = useDispatch();
@@ -40,7 +42,7 @@ const IndividualProduct = ({
   const addProductToCart = () => {
     dispatch(
       cartActions.addProduct({
-        name,
+        name: cartName,
         image: cartImage!,
         price,
         quantity: Number(inputProductQuantityRef.current!.value),
