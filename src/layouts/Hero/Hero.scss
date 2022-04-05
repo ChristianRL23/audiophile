@@ -4,13 +4,14 @@
   @include s.containerPadding;
   background-image: url('./image-hero.jpg');
   height: 90vh;
-  background-position: 30% center;
+  background-position: center -7.5rem;
   background-size: cover;
   margin-bottom: 5rem;
 
   @media screen and (max-width: 1200px) {
     background-image: url('./image-header.jpg');
     background-size: cover;
+    background-position: center -7.5rem;
   }
 
   &__content {
