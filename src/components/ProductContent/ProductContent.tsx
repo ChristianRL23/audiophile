@@ -17,6 +17,10 @@ const ProductContent = () => {
     query: '(max-width: 715px)',
   });
 
+  const isPhone = useMediaQuery({
+    query: '(max-width: 623px)',
+  });
+
   return (
     <section className="product-content">
       <IndividualProduct
@@ -77,20 +81,32 @@ const ProductContent = () => {
       <div className="product-content__others">
         <h3>YOU MAY ALSO LIKE</h3>
         <div className="product-content__others__items">
-          {productSelected!.others.map((product) => (
-            <div
-              key={Math.random().toString(16).slice(2)}
-              className="product-content__others__items__item"
-            >
-              <img src={product.image.desktop} alt="Other product" />
-              <h4>{product.name}</h4>
-              <Button
-                onClick={() => navigate(`${product.slug}`)}
-                color="orange"
-                textContent="SEE PRODUCT"
-              />
-            </div>
-          ))}
+          {productSelected!.others.map((product) => {
+            let image: string;
+
+            if (isPhone) {
+              image = product.image.mobile;
+            } else if (isTablet) {
+              image = product.image.tablet;
+            } else {
+              image = product.image.desktop;
+            }
+
+            return (
+              <div
+                key={Math.random().toString(16).slice(2)}
+                className="product-content__others__items__item"
+              >
+                <img src={image} alt="Other product" />
+                <h4>{product.name}</h4>
+                <Button
+                  onClick={() => navigate(`${product.slug}`)}
+                  color="orange"
+                  textContent="SEE PRODUCT"
+                />
+              </div>
+            );
+          })}
         </div>
       </div>
     </section>
